@@ -70,4 +70,10 @@ Vagrant.configure(2) do |config|
   # SHELL
   config.vm.provision :shell, :inline => "apt-get update"
 
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "provision/manifests"
+    puppet.module_path = "provision/modules"
+    puppet.manifest_file = "default.pp"
+  end
+  
 end
